@@ -1,0 +1,13 @@
+{
+  "Index": {
+    "title": "Hello world!"
+  },
+  "Dashboard": {
+    "common": {
+      "Customers": "Customers"
+    },
+    "Customers": {
+      "Latest Customers": "Latest Customers"
+    }
+  }
+}
