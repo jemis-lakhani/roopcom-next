@@ -5,7 +5,7 @@ import { UserAuthForm } from "./components/user-auth-form";
 export default function SignUpPage() {
   return (
     <>
-      <div className="md:hidden">
+      {/* <div className="md:hidden">
         <Image
           src="/examples/authentication-light.png"
           width={1280}
@@ -20,15 +20,18 @@ export default function SignUpPage() {
           alt="Authentication"
           className="hidden dark:block"
         />
-      </div>
-      <div className="container relative hidden h-[800px] flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
+      </div> */}
+      <div
+        style={{ minHeight: "calc(100vh - 78.28px)" }}
+        className="container relative  flex-col items-center justify-center grid lg:max-w-none lg:grid-cols-2 lg:px-0"
+      >
         <div className="relative hidden h-full flex-col bg-muted p-10 text-white dark:border-r lg:flex">
-          <div className="absolute inset-0 bg-zinc-900" />
-          <div className="relative z-20 flex items-center text-lg font-medium">
+          <div className="absolute inset-0 bg-gradient-to-r from-[#E44C53] via-[#24358E] to-[#E44C53] bg-size-200 bg-pos-0 hover:bg-pos-100 transition-all duration-1000" />
+          <div className="relative z-20 flex items-center text-xl font-medium">
             RoopCom Services & More
           </div>
           <div className="relative z-20 mt-auto">
-            <blockquote className="space-y-2">
+            <blockquote className="space-y-2 font-light">
               <p className="text-lg">
                 &ldquo;This shipping company has delivered my packages with such
                 speed and precision that I thought they were using teleportation
@@ -40,27 +43,24 @@ export default function SignUpPage() {
         </div>
         <div className="lg:p-8">
           <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
-            <div className="flex flex-col space-y-2 text-center">
-              <h1 className="text-2xl font-semibold tracking-tight">
+            <div className="flex flex-col space-y-2 text-center mb-1">
+              <h1 className="text-3xl text-primary font-semibold tracking-tight">
                 Create an account
               </h1>
               <p className="text-sm text-muted-foreground">
-                Enter your email below to create your account
+                Enter your email address to create an account
               </p>
             </div>
             <UserAuthForm />
-            <p className="px-8 text-center text-sm text-muted-foreground">
+            <p className="text-center text-xs text-muted-foreground">
               By clicking continue, you agree to our{" "}
-              <Link
-                href="/terms"
-                className="underline underline-offset-4 hover:text-primary"
-              >
+              <Link href="/terms" className="hover:font-semibold text-primary">
                 Terms of Service
               </Link>{" "}
               and{" "}
               <Link
                 href="/privacy"
-                className="underline underline-offset-4 hover:text-primary"
+                className="hover:font-semibold text-primary"
               >
                 Privacy Policy
               </Link>
