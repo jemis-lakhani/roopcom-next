@@ -28,11 +28,8 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
   return (
     <div className={cn("grid gap-6", className)} {...props}>
       <form onSubmit={onSubmit}>
-        <div className="grid gap-2">
-          <div className="grid gap-1">
-            <Label className="sr-only" htmlFor="email">
-              Email
-            </Label>
+        <div className="grid gap-3">
+          <div className="grid gap-3">
             <Input
               id="email"
               placeholder="name@example.com"
@@ -41,17 +38,18 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
               autoComplete="email"
               autoCorrect="off"
               disabled={isLoading}
+              className="transition duration-300 hover:ring-1 focus-visible:ring-1"
             />
           </div>
           <Button disabled={isLoading}>
             {isLoading && (
               <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
             )}
-            Sign In with Email
+            Sign up
           </Button>
         </div>
       </form>
-      {/* <div className="relative">
+      <div className="relative">
         <div className="absolute inset-0 flex items-center">
           <span className="w-full border-t" />
         </div>
@@ -61,8 +59,8 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
           </span>
         </div>
       </div>
-      <div className="flex space-x-2">
-        <Button variant="outline" type="button" disabled={isLoading}>
+      <div className="flex space-x-2 justify-center">
+        <Button variant="ghost" type="button" disabled={isLoading}>
           {isLoading ? (
             <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
           ) : (
@@ -70,7 +68,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
           )}
           <span className="sr-only">Twitter</span>
         </Button>
-        <Button variant="outline" type="button" disabled={isLoading}>
+        <Button variant="ghost" type="button" disabled={isLoading}>
           {isLoading ? (
             <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
           ) : (
@@ -78,7 +76,23 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
           )}
           <span className="sr-only">Google</span>
         </Button>
-      </div> */}
+        <Button variant="ghost" type="button" disabled={isLoading}>
+          {isLoading ? (
+            <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
+          ) : (
+            <Icons.gitHub className="mr-2 h-4 w-4" />
+          )}
+          <span className="sr-only">GitHub</span>
+        </Button>
+        <Button variant="ghost" type="button" disabled={isLoading}>
+          {isLoading ? (
+            <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
+          ) : (
+            <Icons.apple className="mr-2 h-4 w-4" />
+          )}
+          <span className="sr-only">Apple</span>
+        </Button>
+      </div>
     </div>
   );
 }

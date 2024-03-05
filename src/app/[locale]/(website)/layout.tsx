@@ -14,10 +14,10 @@ export default async function Layout({
     data: { user },
   } = await supabase.auth.getUser();
   const menuData = [
-    {
-      title: "Home",
-      link: "/",
-    },
+    // {
+    //   title: "Home",
+    //   link: "/",
+    // },
     {
       title: "Partners",
       link: "/partners",

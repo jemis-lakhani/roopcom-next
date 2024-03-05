@@ -1,19 +1,13 @@
 "use client";
 import React, { useState } from "react";
-import StyledLink from "@/components/atoms/StyledLink";
 import Logo from "@/components/atoms/Logo";
-import clsx from "clsx";
 import {
   NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuIndicator,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
-  NavigationMenuViewport,
 } from "@/components/ui/navigation-menu";
-import Link from "next/link";
+import NavLink from "../ui/NavLink";
 import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
 import { User } from "@supabase/auth-helpers-nextjs";
 
@@ -46,22 +40,20 @@ const RCNavigationMenu = ({ menuData, user }: navigationMenuProps) => {
         ];
 
   return (
-    <header className="flex w-full">
+    <header className="flex w-full shadow-md bg-primary-foreground">
       <NavigationMenu>
         <NavigationMenuList>
           <NavigationMenuItem>
-            <NavigationMenuItem>
-              <Logo />
-            </NavigationMenuItem>
+            <Logo />
           </NavigationMenuItem>
           {menuData.map((menuItem) => (
             <NavigationMenuItem key={menuItem.link}>
               <NavigationMenuItem>
-                <Link href={menuItem.link} legacyBehavior passHref>
+                <NavLink href={menuItem.link}>
                   <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                     {menuItem.title}
                   </NavigationMenuLink>
-                </Link>
+                </NavLink>
               </NavigationMenuItem>
             </NavigationMenuItem>
           ))}
@@ -71,11 +63,11 @@ const RCNavigationMenu = ({ menuData, user }: navigationMenuProps) => {
           {authButtons.map((menuItem) => (
             <NavigationMenuItem key={menuItem.link}>
               <NavigationMenuItem>
-                <Link href={menuItem.link} legacyBehavior passHref>
+                <NavLink href={menuItem.link}>
                   <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                     {menuItem.title}
                   </NavigationMenuLink>
-                </Link>
+                </NavLink>
               </NavigationMenuItem>
             </NavigationMenuItem>
           ))}

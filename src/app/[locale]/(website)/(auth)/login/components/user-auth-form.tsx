@@ -52,22 +52,24 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
               autoComplete="email"
               autoCorrect="off"
               disabled={isLoading}
+              className="transition duration-300 hover:ring-1 focus-visible:ring-1"
             />
             <Input
               id="password"
               name="password"
-              placeholder="Type your password here"
+              placeholder="password"
               type="password"
               autoCapitalize="none"
               autoCorrect="off"
               disabled={isLoading}
+              className="transition duration-300 hover:ring-1 focus-visible:ring-1"
             />
           </div>
           <Button disabled={isLoading}>
             {isLoading && (
               <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
             )}
-            Sign In
+            Sign in
           </Button>
         </div>
       </form>
