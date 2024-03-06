@@ -120,24 +120,27 @@ const SideNav = ({ isSideNavVisible }: Props) => {
   return (
     <div
       className={clsx(
-        "h-screen transition-width duration-300 ease-in-out bg-white",
+        "h-screen fixed transition-width duration-300 ease-in-out",
         {
           "w-64 flex flex-col": isSideNavVisible,
           "w-0": !isSideNavVisible,
         },
       )}
     >
-      <div className="h-14 flex items-center w-full z-[1000] text-lg font-semibold bg-primary text-white pl-8">
+      <div className="flex items-center justify-center text-lg font-semibold bg-primary text-white select-none w-full h-14 z-[1000]">
         <div
           className={clsx("transition-opacity duration-700 ease-in-out", {
             "opacity-0": !isSideNavVisible,
             "opacity-100": isSideNavVisible,
           })}
         >
-          RoopCom Admin
+          Admin
         </div>
       </div>
-      <div className="w-full h-full bg-white overflow-y-auto z-[1000] my-3">
+      <div
+        className="w-full h-full overflow-y-auto z-[1000] py-3"
+        style={{ backgroundColor: "rgb(55, 111, 208)" }}
+      >
         <Accordion type="multiple">
           {sideMenu.map((menuItem, index) => (
             <>
@@ -145,29 +148,25 @@ const SideNav = ({ isSideNavVisible }: Props) => {
                 value={menuItem.title}
                 key={menuItem.title + index}
                 className={clsx(
-                  "border-0 transition-opacity duration-700 ease-in-out",
+                  "border-0 transition-opacity duration-700 ease-in-out select-none",
                   {
                     "opacity-0": !isSideNavVisible,
                     "opacity-100": isSideNavVisible,
                   },
                 )}
               >
-                <AccordionTrigger className="pl-1 pr-3 pt-2 pb-2 hover:bg-accent">
-                  <div className="flex gap-3 pl-2 p-1 text-gray-600">
-                    {menuItem.icon}
-                    <span>{menuItem.title}</span>
-                  </div>
+                <AccordionTrigger className="flex text-white select-none py-3 px-7 hover:bg-black hover:bg-opacity-[0.08]">
+                  <span className="opacity-60">{menuItem.icon}</span>
+                  <span className="flex-1 flex-shrink text-left text-[13px] px-4">
+                    {menuItem.title}
+                  </span>
                 </AccordionTrigger>
                 <AccordionContent>
                   {menuItem.children.map((child, index) => (
                     <>
-                      <div className="block pl-11 p-2.5 bg-destructive-foreground">
-                        <Link
-                          key={child.title + index}
-                          href={child.href}
-                          className="hover:text-primary"
-                        >
-                          {child.title}
+                      <div className="block text-white text-[13px] opacity-75 pl-14 py-2 hover:bg-black hover:bg-opacity-[0.08]">
+                        <Link key={child.title + index} href={child.href}>
+                          <span className="px-2">{child.title}</span>
                         </Link>
                       </div>
                     </>

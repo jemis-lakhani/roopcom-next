@@ -25,7 +25,8 @@ const AdminLayout = ({ children }: Props) => {
         <div
           className="flex flex-col pt-14"
           style={{
-            width: isSideNavVisible ? "calc(100vw - 18rem)" : "100% !important",
+            width: isSideNavVisible ? "calc(100vw - 18rem)" : "100%",
+            marginLeft: isSideNavVisible ? "16rem" : "0",
           }}
         >
           <div className="p-8">{children}</div>
