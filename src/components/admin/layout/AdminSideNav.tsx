@@ -5,8 +5,9 @@ import {
   AccordionItem,
   AccordionTrigger,
   AccordionContent,
-} from "../atoms/new-york/ui/accordion";
+} from "../../atoms/new-york/ui/accordion";
 import { Icons } from "@/components/atoms/icons";
+import clsx from "clsx";
 
 const sideMenu = [
   {
@@ -111,41 +112,72 @@ const sideMenu = [
   },
 ];
 
-const SideNav: React.FC = () => {
+type Props = {
+  isSideNavVisible: boolean;
+};
+
+const SideNav = ({ isSideNavVisible }: Props) => {
   return (
     <div
-      className="fixed w-64 bg-white overflow-y-auto z-[100]"
-      style={{ height: "calc(100vh - 64px)" }}
+      className={clsx(
+        "h-screen transition-width duration-300 ease-in-out bg-white",
+        {
+          "w-64 flex flex-col": isSideNavVisible,
+          "w-0": !isSideNavVisible,
+        },
+      )}
     >
-      <Accordion type="multiple">
-        {sideMenu.map((menuItem, index) => (
-          <>
-            <AccordionItem value={menuItem.title} key={menuItem.title + index}>
-              <AccordionTrigger className="pl-1 pr-3 pt-2 pb-2 hover:bg-accent">
-                <div className="flex gap-3 pl-2 p-1 ">
-                  {menuItem.icon}
-                  <span>{menuItem.title}</span>
-                </div>
-              </AccordionTrigger>
-              <AccordionContent>
-                {menuItem.children.map((child, index) => (
-                  <>
-                    <div className="block pl-10 p-2.5 bg-destructive-foreground">
-                      <Link
-                        key={child.title + index}
-                        href={child.href}
-                        className="hover:text-primary"
-                      >
-                        {child.title}
-                      </Link>
-                    </div>
-                  </>
-                ))}
-              </AccordionContent>
-            </AccordionItem>
-          </>
-        ))}
-      </Accordion>
+      <div className="h-14 flex items-center w-full z-[1000] text-lg font-semibold bg-primary text-white pl-8">
+        <div
+          className={clsx("transition-opacity duration-700 ease-in-out", {
+            "opacity-0": !isSideNavVisible,
+            "opacity-100": isSideNavVisible,
+          })}
+        >
+          RoopCom Admin
+        </div>
+      </div>
+      <div className="w-full h-full bg-white overflow-y-auto z-[1000] my-3">
+        <Accordion type="multiple">
+          {sideMenu.map((menuItem, index) => (
+            <>
+              <AccordionItem
+                value={menuItem.title}
+                key={menuItem.title + index}
+                className={clsx(
+                  "border-0 transition-opacity duration-700 ease-in-out",
+                  {
+                    "opacity-0": !isSideNavVisible,
+                    "opacity-100": isSideNavVisible,
+                  },
+                )}
+              >
+                <AccordionTrigger className="pl-1 pr-3 pt-2 pb-2 hover:bg-accent">
+                  <div className="flex gap-3 pl-2 p-1 text-gray-600">
+                    {menuItem.icon}
+                    <span>{menuItem.title}</span>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent>
+                  {menuItem.children.map((child, index) => (
+                    <>
+                      <div className="block pl-11 p-2.5 bg-destructive-foreground">
+                        <Link
+                          key={child.title + index}
+                          href={child.href}
+                          className="hover:text-primary"
+                        >
+                          {child.title}
+                        </Link>
+                      </div>
+                    </>
+                  ))}
+                </AccordionContent>
+              </AccordionItem>
+            </>
+          ))}
+        </Accordion>
+      </div>
     </div>
   );
 };
