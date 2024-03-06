@@ -164,7 +164,7 @@ const SideNav = ({ isSideNavVisible }: Props) => {
                 <AccordionContent>
                   {menuItem.children.map((child, index) => (
                     <>
-                      <div className="block text-white text-[13px] opacity-75 pl-14 py-2 hover:bg-black hover:bg-opacity-[0.08]">
+                      <div className="block text-white select-none text-[13px] opacity-75 pl-14 py-2 hover:bg-black hover:bg-opacity-[0.08]">
                         <Link key={child.title + index} href={child.href}>
                           <span className="px-2">{child.title}</span>
                         </Link>
