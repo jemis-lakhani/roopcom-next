@@ -128,7 +128,7 @@ const SideNav = ({ isSideNavVisible }: Props) => {
         },
       )}
     >
-      <div className="flex items-center justify-center text-lg font-semibold bg-primary select-none w-full h-14 z-[1000]">
+      <div className="h-14 flex items-center w-full z-[1000] text-lg font-semibold bg-primary text-white pl-8">
         <div
           className={clsx("transition-opacity duration-700 ease-in-out", {
             "opacity-0": !isSideNavVisible,
