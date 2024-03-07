@@ -20,6 +20,8 @@ type navigationMenuProps = {
 };
 
 const RCNavigationMenu = ({ menuData, user }: navigationMenuProps) => {
+  console.log({ user });
+
   const [isOpen, setOpen] = useState<boolean>(false);
 
   const authButtons =

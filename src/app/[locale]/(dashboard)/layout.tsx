@@ -5,5 +5,5 @@ export default function dashboardLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <AdminLayout children={children} />;
+  return <AdminLayout>{children}</AdminLayout>;
 }

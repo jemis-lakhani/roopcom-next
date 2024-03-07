@@ -24,7 +24,6 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
 
   const handleSubmit = async (e: FormData) => {
     const error = await onSubmitLoginForm(e);
-    console.log("error", error?.message);
     setError(error);
     if (error === null) {
       redirectUser();

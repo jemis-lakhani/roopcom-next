@@ -14,7 +14,7 @@ const sideMenu = [
     title: "Packages",
     icon: <Icons.cubes className="h-5 w-5" />,
     children: [
-      { title: "Add Packages", href: "/dashboard" },
+      { title: "Add Packages", href: "/dashboard/addPackages" },
       { title: "Ship Packages", href: "/dashboard/subpage1" },
       { title: "View Packages", href: "/dashboard/subpage1" },
       { title: "All History", href: "/dashboard/subpage1" },

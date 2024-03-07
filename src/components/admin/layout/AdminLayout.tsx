@@ -23,13 +23,13 @@ const AdminLayout = ({ children }: Props) => {
 
         {/* Main Content */}
         <div
-          className="flex flex-col pt-14"
+          className="flex flex-col overflow-y-auto pt-14"
           style={{
-            width: isSideNavVisible ? "calc(100vw - 18rem)" : "100%",
+            width: isSideNavVisible ? "calc(100vw - 16rem)" : "100%",
             marginLeft: isSideNavVisible ? "16rem" : "0",
           }}
         >
-          <div className="p-8">{children}</div>
+          <div className="p-5">{children}</div>
         </div>
       </div>
     </>
