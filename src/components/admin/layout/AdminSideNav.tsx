@@ -8,6 +8,7 @@ import {
 } from "../../atoms/new-york/ui/accordion";
 import { Icons } from "@/components/atoms/icons";
 import clsx from "clsx";
+import Logo from "@/components/atoms/Logo";
 
 const sideMenu = [
   {
@@ -127,7 +128,7 @@ const SideNav = ({ isSideNavVisible }: Props) => {
         },
       )}
     >
-      <div className="flex items-center justify-center text-lg font-semibold bg-primary text-white select-none w-full h-14 z-[1000]">
+      <div className="flex items-center justify-center text-lg font-semibold bg-primary select-none w-full h-14 z-[1000]">
         <div
           className={clsx("transition-opacity duration-700 ease-in-out", {
             "opacity-0": !isSideNavVisible,
